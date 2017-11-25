@@ -1,5 +1,5 @@
 #!/usr/bin/python
-from app import app as application
+from app import app
 
-application.run()
+app.run()
 

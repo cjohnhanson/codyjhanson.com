@@ -19,40 +19,25 @@
   </script>  
 </head>
 <body>
-  <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-   <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
-        <header class="mdl-layout__header mdl-layout__header--waterfall portfolio-header">
-            <div class="mdl-layout__header-row portfolio-logo-row">
-                <span class="mdl-layout__title">
-                    <div class="portfolio-logo"></div>
-                    <span class="mdl-layout__title">Cody J. Hanson</span>
-                </span>
-            </div>
-            <div class="mdl-layout__header-row portfolio-navigation-row mdl-layout--large-screen-only">
-                <nav class="mdl-navigation mdl-typography--body-1-force-preferred-font">
-                    <a class="mdl-navigation__link" href="/index.html">About</a>
-                    <a class="mdl-navigation__link" href="/blog.html">Blog</a>
-                    <a class="mdl-navigation__link is-active" href="/projects.html">Projects</a>
-                    <a class="mdl-navigation__link" href="/contact.html">Contact</a>
-                </nav>
-            </div>
-        </header>
+<div class="mdl-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <span class="mdl-layout-title">Cody J. Hanson</span>
+      <div class="mdl-layout-spacer"></div>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="/index.html">About</a>
+        <a class="mdl-navigation__link" href="/blog.html">Blog</a>
+        <a class="mdl-navigation__link" href="/projects.html">Projects</a>
+        <a class="mdl-navigation__link" href="/contact.html">Contact</a>
+      </nav>
+    </div>
+  </header>
 <main class="mdl-layout__content">
 {% block container %}
 {% endblock %}
-<!-- <footer class="mdl-mega-footer">
-  <div class="mdl-mini-footer__left-section">
-    <div class="mdl-logo">Cody J. Hanson</div>
-  </div>
-  <div class="mdl-mini-footer__right-section">
-    <ul class="mdl-mini-footer__link-list">
-    </ul>
-</footer> -->
 </main>
 </div>
-
 </div>
 </body>
 <script src="//storage.googleapis.com/code.getmdl.io/1.0.1/material.min.js"></script>
-
 </html>

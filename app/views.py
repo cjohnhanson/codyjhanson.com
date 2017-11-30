@@ -1,5 +1,8 @@
-from flask import render_template
+from flask import render_template, abort
 from app import app
+import pymongo
+db = pymongo.MongoClient().get_database('codyjhanson')
+posts = db.get_collection("posts")
 
 @app.route('/')
 @app.route('/index')
@@ -21,4 +24,10 @@ def projects():
 @app.route('/contact.html')
 def contact():
     return render_template('contact.html')
+
+@app.route('/blog/<post>')
+def blogpost(post=None):
+    document = posts.find_one({'uid' : post})
+    return render_template('post.html', title=document['title'],
+                           date=document['date'],content=document['content'])
 

@@ -4,6 +4,7 @@ try:
     import pymongo
     db = pymongo.MongoClient().get_database('codyjhanson')
     posts = db.get_collection("posts")
+    projects = db.get_collection("projects")
 except:
     app.logger.info("Unable to connect to posts database")
 
@@ -43,6 +44,11 @@ def contact():
 @app.route('/blog/<post>')
 def blogpost(post=None):
     document = posts.find_one({'uid' : post})
+    return render_template('post.html', title=document['title'],
+                           date=document['date'],content=document['content'])
+@app.route('/projects/project')
+def project(project=None):
+    document = projects.find_one({'uid' : project})
     return render_template('post.html', title=document['title'],
                            date=document['date'],content=document['content'])
 

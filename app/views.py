@@ -31,7 +31,7 @@ def blog():
             post_dict['title'] = post['title']
             blogposts.append(post_dict)
     except:
-        continue
+        pass
     return render_template('blog.html', posts=blogposts)
 
 @app.route('/projects')

@@ -33,11 +33,11 @@ def unpublish(uid, collection):
 
 def main():
     args = docopt(__doc__)
-    env = 'prod' if args['--prod'] else 'dev'
-    if env == 'prod':
-         collection = pm.MongoClient('mongodb://codyjhanson.com:27017').get_database("codyjhanson").get_collection("posts")
-    else:
-         collection = pm.MongoClient().get_database("codyjhanson").get_collection("posts")
+    db = pm.MongoClient().get_database("codyjhanson")
+    with open("pwd.txt") as pwdfile:
+        db.authenticate("cody", pwdfile.read().strip())
+        pwdfile.close()
+    collection = get_collection("posts")
     if args['publish']:
         publish(args['FILE'], args['UID'], args['TITLE'], collection)
     elif args['unpublish']:

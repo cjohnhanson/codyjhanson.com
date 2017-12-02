@@ -3,6 +3,9 @@ from app import app
 try:
     import pymongo
     db = pymongo.MongoClient().get_database('codyjhanson')
+    with open("pwd.txt") as pwdfile:
+        db.authenticate("cody", pwdfile.read().strip())
+        pwdfile.close()
     posts = db.get_collection("posts")
     projects = db.get_collection("projects")
 except:

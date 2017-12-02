@@ -22,13 +22,16 @@ def index():
 @app.route('/blog.html')
 def blog():
     blogposts = []
-    cursor = posts.find({})
-    for post in cursor:
-        post_dict = {}
-        post_dict['uid'] = post['uid']
-        post_dict['preview_text'] = preview_text(post['content'])
-        post_dict['title'] = post['title']
-        blogposts.append(post_dict)
+    try:
+        cursor = posts.find({})
+        for post in cursor:
+            post_dict = {}
+            post_dict['uid'] = post['uid']
+            post_dict['preview_text'] = preview_text(post['content'])
+            post_dict['title'] = post['title']
+            blogposts.append(post_dict)
+    except:
+        continue
     return render_template('blog.html', posts=blogposts)
 
 @app.route('/projects')

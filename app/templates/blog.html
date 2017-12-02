@@ -1,21 +1,39 @@
 {% extends 'base.html' %}
 {% block container %}
   <div class="mdl-grid portfolio-max-width">
-    <div class="mdl-cell mdl-cell--12-col mdl-card mdl-shadow--4dp">
-      <div class="mdl-grid portfolio-copy">
-          <h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Coming Soon</h3>
-        <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
-	  <p>What you can expect to find here in the near future:
-	    <ul>
-	      <li>Beginner-level tutorials for Bash, Linux, Python, 
-		and fundamental CS concepts.</li>
-	      <li>Useful snippets of code that have made my life
-	      easier and that I want to share</li>
-	      <li>My thoughts on the state of computing, linguistics, and 
-		STEM education</li>
-	      </ul>
-	    </p>
+    <div class="mdl-cell--12-col mdl-card mdl-shadow--4dp">
+      <div class="mdl-grid">
+	{% if posts %}
+	{% for post in posts %}
+	<div class="mdl-card mdl-shadow--2dp" style="margin:3px;">
+	  <div class="mdl-card__title mdl-card--expand">
+	    <h2 class="mdl-card__title-text">{{ post['title'] }}</h2>
+	  </div>
+	  <div class="mdl-card__supporting-text">
+	    {{ post['preview_text'] }}
+	  </div>
+	  <div class="mdl-card__actions mdl-card--border">
+	    <a class="mdl-button mdl-button--accent mdl-js-button mdl-js-ripple-effect" href="blog/{{ post['uid'] }}">
+	      Read
+	    </a>
+	  </div>
 	</div>
+	{% endfor %}
+	{% else %}
+	<h3 class="mdl-cell mdl-cell--12-col mdl-typography--headline">Coming Soon</h3>
+        <div class="mdl-cell mdl-cell--8-col mdl-card__supporting-text no-padding ">
+          <p>What you can expect to find here in the near future:
+            <ul>
+              <li>Beginner-level tutorials for Bash, Linux, Python,
+                and fundamental CS concepts.</li>
+              <li>Useful snippets of code that have made my life
+              easier and that I want to share</li>
+              <li>My thoughts on the state of computing, linguistics, and
+                STEM education</li>
+              </ul>
+            </p>
+        </div>
+	{% endif %}
       </div>
     </div>
   </div>

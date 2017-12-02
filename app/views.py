@@ -1,8 +1,15 @@
 from flask import render_template, abort
 from app import app
-import pymongo
-db = pymongo.MongoClient().get_database('codyjhanson')
-posts = db.get_collection("posts")
+try:
+    import pymongo
+    db = pymongo.MongoClient().get_database('codyjhanson')
+    posts = db.get_collection("posts")
+except:
+    app.logger.info("Unable to connect to posts database")
+
+def preview_text(text):
+    #TODO
+    return "Test test test test test"
 
 @app.route('/')
 @app.route('/index')
@@ -13,7 +20,15 @@ def index():
 @app.route('/blog')
 @app.route('/blog.html')
 def blog():
-    return render_template('blog.html')
+    blogposts = []
+    cursor = posts.find({})
+    for post in cursor:
+        post_dict = {}
+        post_dict['uid'] = post['uid']
+        post_dict['preview_text'] = preview_text(post['content'])
+        post_dict['title'] = post['title']
+        blogposts.append(post_dict)
+    return render_template('blog.html', posts=blogposts)
 
 @app.route('/projects')
 @app.route('/projects.html')

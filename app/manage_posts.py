@@ -35,9 +35,9 @@ def main():
     args = docopt(__doc__)
     db = pm.MongoClient().get_database("codyjhanson")
     with open("pwd.txt") as pwdfile:
-        db.authenticate("cody", pwdfile.read().strip())
+#        db.authenticate("cody", pwdfile.read().strip())
         pwdfile.close()
-    collection = get_collection("posts")
+    collection = db.get_collection("posts")
     if args['publish']:
         publish(args['FILE'], args['UID'], args['TITLE'], collection)
     elif args['unpublish']:

@@ -8,4 +8,3 @@ fi
 git pull
 
 service apache2 restart
-

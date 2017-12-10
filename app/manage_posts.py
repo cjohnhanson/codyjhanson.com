@@ -8,7 +8,7 @@ Options:
   -h --help    Display this message
   -p --prod    Publish/unpublish to production instance (default is to local dev instance)
 """
-import datetime, pymongo as pm
+import datetime, markdown2, pymongo as pm
 from docopt import docopt
 
 def classy_date(date):
@@ -22,7 +22,7 @@ def publish(infile, title, uid, collection):
         post['title'] = title
         post['uid'] = uid
         post['date'] = classy_date(datetime.datetime.today())
-        post['content'] = content_file.read()
+        post['content'] = markdown2.markdown(content_file.read())
         content_file.close()
         return collection.insert_one(post)
 

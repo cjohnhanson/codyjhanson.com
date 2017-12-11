@@ -3,17 +3,20 @@ from app import app
 try:
     import pymongo
     db = pymongo.MongoClient().get_database('codyjhanson')
-    with open("pwd.txt") as pwdfile:
-        db.authenticate("cody", pwdfile.read().strip())
-        pwdfile.close()
+#    with open("pwd.txt") as pwdfile:
+#        db.authenticate("cody", pwdfile.read().strip())
+#        pwdfile.close()
     posts = db.get_collection("posts")
     projects = db.get_collection("projects")
 except:
     app.logger.info("Unable to connect to posts database")
+    print("Unable to connect to posts database")
 
 def preview_text(text):
-    #TODO
-    return "Test test test test test"
+    try:
+        return " ".join(filter(lambda x: "<" not in x, text.split()[:100])) + "..."
+    except:
+        return text
 
 @app.route('/')
 @app.route('/index')
@@ -50,11 +53,11 @@ def contact():
 @app.route('/blog/<post>')
 def blogpost(post=None):
     document = posts.find_one({'uid' : post})
-    return render_template('post.html', title=document['title'],
-                           date=document['date'],content=document['content'])
+    return render_template('post.html',content=document['content'])
+
 @app.route('/projects/project')
 def project(project=None):
     document = projects.find_one({'uid' : project})
     return render_template('post.html', title=document['title'],
-                           date=document['date'],content=document['content'])
+                           date=document['date'], content=document['content'])
 

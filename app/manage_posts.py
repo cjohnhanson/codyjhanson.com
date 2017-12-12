@@ -2,17 +2,16 @@
 """Manage posts
 Usage:
   manage_posts.py setup 
-  manage_posts.py list
-  manage_posts.py publish FILE --uid UID --title TITLE [-p]
+  manage_posts.py list [--project]
+  manage_posts.py publish FILE --uid UID --title TITLE [--project]
   manage_posts.py unpublish --uid UID
   
 Options:
   -h --help    Display this message
-  -p --prod    Publish/unpublish to production instance (default is to local dev instance)
+  --project    Operate on the projects collection instead of posts
 """
-import base64, datetime, getpass, pymongo as pm
+import base64, datetime, getpass, markdown2, pymongo as pm
 from docopt import docopt
-
     
 def setup_db(name):
     """Setup the database with posts/projects collections, and user.
@@ -31,7 +30,7 @@ def publish(infile, uid, title, collection):
         post['title'] = title
         post['uid'] = uid
         post['date'] = classy_date(datetime.datetime.today())
-        post['content'] = content_file.read()
+        post['content'] = markdown2.markdown(content_file.read(), extras=["fenced-code-blocks"])
         content_file.close()
         return collection.insert_one(post)
 
@@ -42,6 +41,8 @@ def unpublish(uid, collection):
 
 def list_posts(collection):
     """List all posts currently in the database"""
+    for post in collection.find():
+        print post['title']
     
 def main():
     args = docopt(__doc__)
@@ -51,7 +52,7 @@ def main():
     with open("pwd.txt") as pwdfile:
         db.authenticate("cody", pwdfile.read().strip())
         pwdfile.close()
-    collection = db.get_collection("posts")
+    collection = db.get_collection("projects" if args["--project"] else "posts")
     if args['publish']:
         publish(args['FILE'], args['UID'], args['TITLE'], collection)
     elif args['unpublish']:

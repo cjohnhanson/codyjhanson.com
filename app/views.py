@@ -1,15 +1,16 @@
 from flask import render_template, abort
 from app import app
 import pymongo
-#db = pymongo.MongoClient().get_database('codyjhanson')
-#with open("pwd.txt") as pwdfile:
-#    app.logger.info("Successfully opened pwdfile")
-#    db.authenticate("cody", pwdfile.read().strip())
-#    app.logger.info("Finished authentication")
-#    pwdfile.close()
-#print("Unable to connect to posts database")
-#posts = db.get_collection("posts")
-#app.logger.info("Got posts")
+
+db = pymongo.MongoClient().get_database('codyjhanson')
+with open("pwd.txt") as pwdfile:
+    app.logger.info("Successfully opened pwdfile")
+    db.authenticate("cody", pwdfile.read().strip())
+    app.logger.info("Finished authentication")
+    pwdfile.close()
+posts = db.get_collection("posts")
+project_posts = db.get_collection("projects")
+app.logger.info("Got posts")
 
 def preview_text(text):
     try:
@@ -41,8 +42,19 @@ def blog():
 
 @app.route('/projects')
 @app.route('/projects.html')
-def projects():
-    return render_template('projects.html')
+def projects():    
+    projects = []
+    try:
+        cursor = project_posts.find({})
+        for project in cursor:
+            project_dict = {}
+            project_dict['uid'] = project['uid']
+            project_dict['preview_text'] = preview_text(project['content'])
+            project_dict['title'] = project['title']
+            projects.append(project_dict)
+    except:
+        pass
+    return render_template('projects.html', projects=projects)
 
 @app.route('/contact')
 @app.route('/contact.html')
@@ -54,9 +66,9 @@ def blogpost(post=None):
     document = posts.find_one({'uid' : post})
     return render_template('post.html',content=document['content'])
 
-@app.route('/projects/project')
+@app.route('/projects/<project>')
 def project(project=None):
-    document = projects.find_one({'uid' : project})
+    document = project_posts.find_one({'uid' : project})
     return render_template('post.html', title=document['title'],
                            date=document['date'], content=document['content'])
 

@@ -3,8 +3,8 @@
 Usage:
   manage_posts.py setup 
   manage_posts.py list [--project]
-  manage_posts.py publish FILE --uid UID --title TITLE [--project]
-  manage_posts.py unpublish --uid UID
+  manage_posts.py publish FILE [--project]
+  manage_posts.py unpublish UID [--project]
   
 Options:
   -h --help    Display this message
@@ -19,18 +19,27 @@ def setup_db(name):
     """
     #TODO
 
+def parse_header(contents):
+    """Return a dict of the info in the header of the post"""
+    header = contents.read().split("---")[1].split("\n")
+    contents.close()
+    meta = {}
+    for line in header:
+        key_val = line.split(":")
+        if key_val[1]:
+            meta[key_val[0]] = meta[key_val[1]]
+    return meta
+
 def classy_date(date):
     """Make a datetime look classy"""
     return "{} {}, {}".format(date.day, date.strftime("%B"), date.year)
 
-def publish(infile, uid, title, collection):
-    """Publish post from file to either dev or prod"""
+def publish(infile, collection):
+    """Publish post from file"""
     with open(infile, 'r') as content_file:
-        post = {}
-        post['title'] = title
-        post['uid'] = uid
-        post['date'] = classy_date(datetime.datetime.today())
-        post['content'] = markdown2.markdown(content_file.read(), extras=["fenced-code-blocks"])
+        post = parse_header(content_file)
+        in_header = False
+        post['content'] = markdown2.markdown(content_file.read(), extras=["fenced-code-blocks", "cuddled-lists"])
         content_file.close()
         return collection.insert_one(post)
 
@@ -54,7 +63,7 @@ def main():
         pwdfile.close()
     collection = db.get_collection("projects" if args["--project"] else "posts")
     if args['publish']:
-        publish(args['FILE'], args['UID'], args['TITLE'], collection)
+        publish(args['FILE'], collection)
     elif args['unpublish']:
         unpublish(args['UID'], collection)
     elif args['list']:

@@ -2,15 +2,15 @@ from flask import render_template, abort
 from app import app
 import pymongo
 
-db = pymongo.MongoClient().get_database('codyjhanson')
-with open("pwd.txt") as pwdfile:
-    app.logger.info("Successfully opened pwdfile")
-    db.authenticate("cody", pwdfile.read().strip())
-    app.logger.info("Finished authentication")
-    pwdfile.close()
-posts = db.get_collection("posts")
-project_posts = db.get_collection("projects")
-app.logger.info("Got posts")
+#db = pymongo.MongoClient().get_database('codyjhanson')
+#with open("pwd.txt") as pwdfile:
+#    app.logger.info("Successfully opened pwdfile")
+#    db.authenticate("cody", pwdfile.read().strip())
+#    app.logger.info("Finished authentication")
+#    pwdfile.close()
+#posts = db.get_collection("posts")
+#project_posts = db.get_collection("projects")
+#app.logger.info("Got posts")
 
 def preview_text(text):
     try:

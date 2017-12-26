@@ -17,7 +17,21 @@ def setup_db(name):
     """Setup the database with posts/projects collections, and user.
     Stores the password encoded in pwd.txt file
     """
-    #TODO
+    client = pm.MongoClient()
+    db = client.get_database(name)
+    try:
+        db.create_collection("posts")
+    except pm.errors.CollectionInvalid:
+        #TODO
+        print("Posts collection already exists")
+    try:
+        user = input("Name for db user: ").strip()
+        password = getpass.getpass("Password for db user: ")
+        db.command("createUser", user, pwd = password, roles = ["readWrite"])
+    except pm.errors.DuplicateKeyError:
+        #TODO
+        print("User already exists.")
+    
 
 def parse_header(contents):
     """Return a dict of the info in the header of the post"""
@@ -51,13 +65,13 @@ def unpublish(uid, collection):
 def list_posts(collection):
     """List all posts currently in the database"""
     for post in collection.find():
-        print post['title']
+        print(post['title'])
     
 def main():
     args = docopt(__doc__)
     db = pm.MongoClient().get_database("codyjhanson")
     if args["setup"]:
-        return setup()
+        return setup_db("codyjhanson")
     with open("pwd.txt") as pwdfile:
         db.authenticate("cody", pwdfile.read().strip())
         pwdfile.close()

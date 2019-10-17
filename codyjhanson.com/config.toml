@@ -1,4 +1,4 @@
-baseURL = "https://codyjhanson.com/"
+baseURL = "https://codyjohnhanson.com/"
 languageCode = "en-us"
 defaultContentLanguage = "en"
 title = "Cody J. Hanson"
@@ -76,6 +76,6 @@ enableEmoji = true  # Shorthand emojis in content files - https://gohugo.io/func
 
   [[menu.main]]
     name = "About"
-    url = "about"
+    url = "about/index.html"
     weight = 20
 

@@ -27,7 +27,5 @@ As any data engineer can tell you, a lot of our job consists of
 - Describe design choices
 ## The Result
 - Describe how this is being used in production
-- Describe what it's shortcomings are
+- Describe what its shortcomings are
 - Describe potential future improvements
-
-

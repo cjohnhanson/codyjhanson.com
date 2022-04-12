@@ -1,19 +1,32 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  
   <url>
     <loc>https://codyjhanson.com/about/</loc>
-    <lastmod>2020-03-28T15:30:00-05:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2022-03-07T15:30:00-05:00</lastmod>
+  </url><url>
     <loc>https://codyjhanson.com/</loc>
-    <lastmod>2020-03-28T15:30:00-05:00</lastmod>
-  </url>
-  
-  <url>
+    <lastmod>2019-10-17T11:04:00-05:00</lastmod>
+  </url><url>
+    <loc>https://codyjhanson.com/posts/dataops/</loc>
+    <lastmod>2019-10-17T11:04:00-05:00</lastmod>
+  </url><url>
+    <loc>https://codyjhanson.com/posts/</loc>
+    <lastmod>2019-10-17T11:04:00-05:00</lastmod>
+  </url><url>
+    <loc>https://codyjhanson.com/tags/data-engineering/</loc>
+    <lastmod>2019-10-16T13:53:50-05:00</lastmod>
+  </url><url>
+    <loc>https://codyjhanson.com/tags/projects/</loc>
+    <lastmod>2019-10-16T13:53:50-05:00</lastmod>
+  </url><url>
+    <loc>https://codyjhanson.com/tags/redshift/</loc>
+    <lastmod>2019-10-16T13:53:50-05:00</lastmod>
+  </url><url>
+    <loc>https://codyjhanson.com/posts/schematic/</loc>
+    <lastmod>2019-10-16T13:53:50-05:00</lastmod>
+  </url><url>
     <loc>https://codyjhanson.com/tags/</loc>
+    <lastmod>2019-10-16T13:53:50-05:00</lastmod>
   </url>
-  
 </urlset>

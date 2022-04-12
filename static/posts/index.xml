@@ -1,0 +1,67 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Posts on Cody J. Hanson</title>
+		<link>https://codyjhanson.com/posts/</link>
+		<description>Recent content in Posts on Cody J. Hanson</description>
+		<generator>Hugo -- gohugo.io</generator>
+		<language>en-us</language>
+		<copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
+		<lastBuildDate>Thu, 17 Oct 2019 11:04:00 -0500</lastBuildDate>
+		<atom:link href="https://codyjhanson.com/posts/index.xml" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Dataops</title>
+			<link>https://codyjhanson.com/posts/dataops/</link>
+			<pubDate>Thu, 17 Oct 2019 11:04:00 -0500</pubDate>
+			
+			<guid>https://codyjhanson.com/posts/dataops/</guid>
+			<description></description>
+			<content type="html"><![CDATA[]]></content>
+		</item>
+		
+		<item>
+			<title>Schematic</title>
+			<link>https://codyjhanson.com/posts/schematic/</link>
+			<pubDate>Wed, 16 Oct 2019 13:53:50 -0500</pubDate>
+			
+			<guid>https://codyjhanson.com/posts/schematic/</guid>
+			<description>Schematic: Cross-platform schema generation The Problem  State the problem Describe existing solutions  https://community.periscopedata.com/t/80fhrg/using-python-to-write-a-create-table-statement-and-load-a-csv-into-redshift   Describe motivation for creating new solution  UNIX Philosophy   Briefly describe general approach As any data engineer can tell you, a lot of our job consists of  The Solution  Detailed description of what a candidate solution would need to accomplish Overview of existing tools/libraries and their shortcomings  The Process  Walkthrough of the technologies used and motivation for choosing them Describe process of coming up with algorithm Describe design choices  The Result  Describe how this is being used in production Describe what its shortcomings are Describe potential future improvements  </description>
+			<content type="html"><![CDATA[<h1 id="schematic-cross-platform-schema-generation">Schematic: Cross-platform schema generation</h1>
+<h2 id="the-problem">The Problem</h2>
+<ul>
+<li>State the problem</li>
+<li>Describe existing solutions
+<ul>
+<li><a href="https://community.periscopedata.com/t/80fhrg/using-python-to-write-a-create-table-statement-and-load-a-csv-into-redshift">https://community.periscopedata.com/t/80fhrg/using-python-to-write-a-create-table-statement-and-load-a-csv-into-redshift</a></li>
+</ul>
+</li>
+<li>Describe motivation for creating new solution
+<ul>
+<li>UNIX Philosophy</li>
+</ul>
+</li>
+<li>Briefly describe general approach
+As any data engineer can tell you, a lot of our job consists of</li>
+</ul>
+<h2 id="the-solution">The Solution</h2>
+<ul>
+<li>Detailed description of what a candidate solution would need to accomplish</li>
+<li>Overview of existing tools/libraries and their shortcomings</li>
+</ul>
+<h2 id="the-process">The Process</h2>
+<ul>
+<li>Walkthrough of the technologies used and motivation for choosing them</li>
+<li>Describe process of coming up with algorithm</li>
+<li>Describe design choices</li>
+</ul>
+<h2 id="the-result">The Result</h2>
+<ul>
+<li>Describe how this is being used in production</li>
+<li>Describe what its shortcomings are</li>
+<li>Describe potential future improvements</li>
+</ul>
+]]></content>
+		</item>
+		
+	</channel>
+</rss>

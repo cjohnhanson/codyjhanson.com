@@ -6,8 +6,7 @@
     <description>Recent content on Cody J. Hanson</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright>
-    <lastBuildDate>Thu, 17 Oct 2019 11:04:00 -0500</lastBuildDate><atom:link href="https://codyjhanson.com/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>This work is licensed under a Creative Commons Attribution-NonCommercial 4.0 International License.</copyright><atom:link href="https://codyjhanson.com/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About Me</title>
       <link>https://codyjhanson.com/about/</link>
@@ -17,24 +16,6 @@
       <description>My name is Cody. I&amp;rsquo;m a Senior Software Engineer at Meltano.
 Before joining Meltano, I worked as a Systems Engineer at PEAK6 Investments, as a Senior Data Engineer at Arrive in Chicago, and as a Senior data engineer at Sprout Social in Chicago.
 Prior to becoming an engineer, I attended the University of Chicago as an Odyssey Scholar. During my time at UChicago, I worked as a tutor in the Computer Science Instructional Laboratories where I led a small team of students who managed all of the labs&amp;rsquo; operations.</description>
-    </item>
-    
-    <item>
-      <title>Dataops</title>
-      <link>https://codyjhanson.com/posts/dataops/</link>
-      <pubDate>Thu, 17 Oct 2019 11:04:00 -0500</pubDate>
-      
-      <guid>https://codyjhanson.com/posts/dataops/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Schematic</title>
-      <link>https://codyjhanson.com/posts/schematic/</link>
-      <pubDate>Wed, 16 Oct 2019 13:53:50 -0500</pubDate>
-      
-      <guid>https://codyjhanson.com/posts/schematic/</guid>
-      <description>Schematic: Cross-platform schema generation The Problem  State the problem Describe existing solutions  https://community.periscopedata.com/t/80fhrg/using-python-to-write-a-create-table-statement-and-load-a-csv-into-redshift   Describe motivation for creating new solution  UNIX Philosophy   Briefly describe general approach As any data engineer can tell you, a lot of our job consists of  The Solution  Detailed description of what a candidate solution would need to accomplish Overview of existing tools/libraries and their shortcomings  The Process  Walkthrough of the technologies used and motivation for choosing them Describe process of coming up with algorithm Describe design choices  The Result  Describe how this is being used in production Describe what its shortcomings are Describe potential future improvements  </description>
     </item>
     
   </channel>

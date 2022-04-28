@@ -1,0 +1,45 @@
+<div class="basis-1/12 lg:basis-1/6">
+  {{ partial "center-card/open" }}
+  <div>
+    <h2 class="text-center pb-3 text-2xl text-theme-yellow pr-5">
+      <span class="animate-pulse"> 👇</span> Menu
+    </h2>
+    <div class="px-12 pt-8 pb-3">
+      <div class="flex flex-row">
+        <a
+          class="peer hover:mr-4 transition-all duration-500 flex flex-row"
+          href="/"
+          ><img src="/img/home-icon.svg" class="w-12 h-12" /><span
+            class="text-theme-yellow align-middle pt-4 pl-4"
+            >Home</span
+          ></a
+        >
+        <span class="invisible peer-hover:visible pt-4">👈</span>
+      </div>
+    </div>
+  </div>
+  <div class="pl-8 pt-8 pb-4 flex flex-row">
+    <a
+      class="peer hover:mr-4 transition-all duration-500 flex flex-row"
+      href="/resume"
+      ><span class="text-4xl align-baseline">
+        <img src="/img/resume-icon.svg" class="w-12 h-12 -skew-y-12" /></span
+      ><span class="text-theme-yellow align-middle pt-4 pl-4">Resume</span>
+    </a>
+    <span class="invisible peer-hover:visible pt-4">👈</span>
+  </div>
+  <div class="pl-8 pt-8 pb-3 flex flex-row">
+    <a
+      class="peer hover:mr-4 transition-all duration-500 flex flex-row"
+      href="/blog"
+      ><span class="text-4xl align-baseline">
+        <img
+          src="/img/blog-icon.svg"
+          class="w-12 h-12 -skew-y-12 -skew-x-12"
+        /> </span
+      ><span class="peer text-theme-yellow align-middle pt-4 pl-4">Blog</span>
+    </a>
+    <span class="invisible peer-hover:visible pt-4">👈</span>
+  </div>
+  {{ partial "center-card/close" }}
+</div>

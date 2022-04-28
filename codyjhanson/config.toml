@@ -1,0 +1,7 @@
+baseURL = 'http://codyjhanson.com/'
+languageCode = 'en-us'
+title = 'Cody J. Hanson'
+
+[params]
+  homeText = ""
+  favicon = "favicon.ico"
